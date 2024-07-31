@@ -27,4 +27,36 @@ class Post extends Model
     {
         return $this->belongsToMany(Category::class);
     }
+
+    public function shortBody($words = 30): string
+    {
+        return Str::words(strip_tags($this->body), $words);
+    }
+
+    public function getFormattedDate()
+    {
+        return $this->published_at->format('F jS Y');
+    }
+
+    public function getThumbnail()
+    {
+        if (str_starts_with($this->thumbnail, 'http')) {
+            return $this->thumbnail;
+        }
+
+        return '/storage/' . $this->thumbnail;
+    }
+
+    public function humanReadTime(): Attribute
+    {
+        return new Attribute(
+            get: function ($value, $attributes) {
+                $words = Str::wordCount(strip_tags($attributes['body']));
+                $minutes = ceil($words / 200);
+
+                return $minutes . ' ' . str('min')->plural($minutes) . ', '
+                    . $words . ' ' . str('word')->plural($words);
+            }
+        );
+    }
 }

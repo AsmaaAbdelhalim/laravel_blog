@@ -19,7 +19,12 @@ return new class extends Migration
             $table->longText('body');
             $table->boolean('active')->default(false);
             $table->datetime('published_at')->nullable();
-            $table->foreignIdFor(\App\Models\User::class, 'user_id');
+            //$table->foreignIdFor(\App\Models\User::class, 'user_id');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('meta_title', 255)->nullable();
+            $table->string('meta_description', 255)->nullable();
+     
+
             $table->timestamps();
         });
     }

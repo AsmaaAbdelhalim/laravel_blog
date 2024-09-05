@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PostResource\Pages;
 use App\Filament\Resources\PostResource\RelationManagers;
 use App\Models\Post;
+use App\Models\Category;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -14,6 +15,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Closure;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 
 class PostResource extends Resource
 {
@@ -52,10 +54,13 @@ class PostResource extends Resource
 
                 Forms\Components\Card::make()
                     ->schema([
-                        Forms\Components\FileUpload::make('thumbnail'),
-                        Forms\Components\Select::make('categories')
-                            ->multiple()
-                            ->relationship('categories', 'title'),
+                         Forms\Components\FileUpload::make('thumbnail'),
+                        
+         
+
+                            Forms\Components\Select::make('category_id')
+                            
+                            ->options(Category::all()->pluck('title', 'id')->toArray()),
                     ])->columnSpan(4)
             ])->columns(12);
     }
@@ -72,9 +77,11 @@ class PostResource extends Resource
                     ->sortable()
                     ->boolean(),
                     Tables\Columns\TextColumn::make('user.name'),
-                    Tables\Columns\TextColumn::make('categories.title'),
+                    //Tables\Columns\TextColumn::make('categories.title'),
 
 
+                    Tables\Columns\TextColumn::make('category_id'),
+                    
                 Tables\Columns\TextColumn::make('published_at')
                     ->sortable()
                     ->dateTime(),

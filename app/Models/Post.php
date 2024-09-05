@@ -2,8 +2,13 @@
 
 namespace App\Models;
 
+//use Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
+use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Support\Carbon;
 
 class Post extends Model
 {
@@ -14,8 +19,9 @@ class Post extends Model
         'thumbnail',
         'body',
         'active',
-        'publish_at',
-        'user_id'
+        'published_at',
+        'user_id',
+        'category_id'
     ];
 
     public function user()
@@ -33,9 +39,18 @@ class Post extends Model
         return Str::words(strip_tags($this->body), $words);
     }
 
+    // public function getFormattedDate()
+    // {
+    //     return $this->published_at->format('F jS Y');
+    // }
+
     public function getFormattedDate()
     {
-        return $this->published_at->format('F jS Y');
+        if ($this->published_at) {
+            return Carbon::parse($this->published_at)->format('F jS Y');
+        }
+
+        return null; 
     }
 
     public function getThumbnail()

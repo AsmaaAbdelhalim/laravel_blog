@@ -1,7 +1,10 @@
 <?php
 
-namespace App\Filament\Widgets;
+namespace App\Filament\Resources\PostResource\Widgets;
 
+use App\Models\Post;
+use App\Models\PostView;
+use App\Models\UpvoteDownvote;
 use Filament\Widgets\Widget;
 
 class PostOverview extends Widget

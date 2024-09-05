@@ -47,6 +47,8 @@ class PostController extends Controller
                 'posts.updated_at',
                 'posts.meta_title',
                 'posts.meta_description',
+                'posts.image',
+                'posts.category_id',
             ])
             ->limit(5)
             ->get();
@@ -91,6 +93,8 @@ class PostController extends Controller
                     'posts.updated_at',
                     'posts.meta_title',
                     'posts.meta_description',
+                    'posts.image',
+                    'posts.category_id',
                 ])
                 ->limit(3)
                 ->get();
@@ -116,6 +120,8 @@ class PostController extends Controller
                 'categories.id',
                 'categories.title',
                 'categories.slug',
+                'categories.image',
+                'categories.description',
                 'categories.created_at',
                 'categories.updated_at',
             ])

@@ -13,17 +13,18 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 2048);
-            $table->string('slug', 2048);
-            $table->string('thumbnail', 2048)->nullable();
+     
+            $table->string('title');
+            $table->string('slug');
+            $table->string('thumbnail')->nullable();
             $table->longText('body');
             $table->boolean('active')->default(false);
             $table->datetime('published_at')->nullable();
-            //$table->foreignIdFor(\App\Models\User::class, 'user_id');
-            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('image')->nullable();
             $table->string('meta_title', 255)->nullable();
             $table->string('meta_description', 255)->nullable();
-     
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('category_id')->references('id')->on('categories')->onDelete('cascade');
 
             $table->timestamps();
         });

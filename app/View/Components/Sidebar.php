@@ -5,6 +5,9 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use App\Models\Category;
+//use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 
 class sidebar extends Component
 {

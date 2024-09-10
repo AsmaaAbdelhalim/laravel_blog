@@ -5,20 +5,13 @@ namespace App\View\Components;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 use App\Models\Category;
-//use Filament\Notifications\Collection;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
 class AppLayout extends Component
 {
-    /**
-     * Get the view / contents that represents the component.
-     */
-    public function render(): View
-    {
-        return view('layouts.app');
-    }
+ 
 
     public Collection $categories;
     public function __construct(public ?string $metaTitle = null, public ?string $metaDescription = null)
@@ -30,5 +23,20 @@ class AppLayout extends Component
                     ->orderByDesc('total')
                     ->limit(5)
                     ->get();
+                    // return view (
+                    //     'layouts.app',
+                    //     [
+                    //         'categories' => $this->categories,
+                    //         'metaTitle' => $this->metaTitle,
+                    //         'metaDescription' => $this->metaDescription,
+                    //         ]
+                    //     );
+    }
+     /**
+     * Get the view / contents that represents the component.
+     */
+    public function render(): View
+    {
+        return view('layouts.app');
     }
 }

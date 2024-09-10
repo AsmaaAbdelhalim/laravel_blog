@@ -16,22 +16,22 @@ class Comment extends Model
         'parent_id'
         ];
 
-    public function user(): BelongsTo
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function post(): BelongsTo
+    public function post()
     {
         return $this->belongsTo(Post::class);
     }
 
-    public function parentComment(): BelongsTo
+    public function parentComment()
     {
         return $this->belongsTo(Comment::class, 'parent_id');
     }
 
-    public function comments(): HasMany
+    public function comments()
     {
         return $this->hasMany(Comment::class, 'parent_id')->orderByDesc('created_at');
     }

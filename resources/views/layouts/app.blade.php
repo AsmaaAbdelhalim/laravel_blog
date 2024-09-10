@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+        @livewireStyles
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
   <link rel="stylesheet" href="{{asset('css/maicons.css')}}">
@@ -78,11 +79,7 @@
             <li class="nav-item">
               <a class="nav-link" href="{{route('dashboard')}}" :active="request()->routeIs('dashboard')">Dashboard</a>
             </li>
-            @foreach($categories as $category)
-            <li class="nav-item">
-              <a class="nav-link" href="{{route('by-category', $category)}}">{{$category->title}}</a>
-            </li>                    
-            @endforeach
+
             <li class="nav-item">
               <a class="nav-link" href="contact.html">Contact</a>
             </li>
@@ -202,6 +199,6 @@
 <script src="{{asset('vendor/wow/wow.min.js')}}"></script>
 
 <script src="{{asset('js/theme.js')}}"></script>
-  
+@livewireScripts  
 </body>
 </html>

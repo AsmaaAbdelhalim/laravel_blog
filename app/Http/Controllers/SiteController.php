@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\TextWidget;
 
 class SiteController extends Controller
 {
 
-    public function about(): View
+    public function about()
     {
         $widget = TextWidget::query()
             ->where('key', '=', 'about-page')

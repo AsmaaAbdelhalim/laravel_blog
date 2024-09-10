@@ -3,6 +3,8 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\Post;
+use App\Models\Comment;
 
 class Comments extends Component
 {

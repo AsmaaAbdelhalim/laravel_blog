@@ -1,5 +1,5 @@
-<x-app-layout :meta-title="$category->title"
-              :meta-description="'Posts filtered by category ' . $category->title">
+@extends('layouts.app')
+@section('content')
     <div class="container mx-auto flex flex-wrap py-6">
 
         <!-- Posts Section -->
@@ -16,4 +16,4 @@
         <x-sidebar />
 
     </div>
-</x-app-layout>
+@endsection 

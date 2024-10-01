@@ -54,13 +54,13 @@
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
       <div class="container">
         <a class="navbar-brand" href="#"><span class="text-primary">One</span>-Health</a>
-
-        <form action="#">
+        
+        <form method="get" action="{{route('search')}}">
           <div class="input-group input-navbar">
             <div class="input-group-prepend">
               <span class="input-group-text" id="icon-addon1"><span class="mai-search"></span></span>
             </div>
-            <input type="text" class="form-control" placeholder="Enter keyword.." aria-label="Username" aria-describedby="icon-addon1">
+            <input type="text" name="q" value="{{request()->get('q')}}" class="form-control" placeholder="Enter keyword.." aria-label="Username" aria-describedby="icon-addon1">
           </div>
         </form>
 
@@ -79,7 +79,7 @@
             <li class="nav-item">
               <a class="nav-link" href="{{route('dashboard')}}" :active="request()->routeIs('dashboard')">Dashboard</a>
             </li>
-
+     
             <li class="nav-item">
               <a class="nav-link" href="contact.html">Contact</a>
             </li>
@@ -105,12 +105,6 @@
 
                                 <a class="dropdown-item" href="{{ url('profile') }}">
                                         {{ __('Profile') }}
-                                    </a>
-                                    <a class="dropdown-item" href="{{ url('edit-profile')}}">
-                                        {{ __('Edit Profile') }}
-                                    </a>
-                                    <a class="dropdown-item" href="{{ url('change-password')}}">
-                                        {{ __('Change Password') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

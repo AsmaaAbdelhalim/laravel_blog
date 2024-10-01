@@ -1,4 +1,5 @@
-<x-app-layout :meta-title="$post->meta_title ?: $post->title" :meta-description="$post->meta_description">
+@extends('layouts.app')
+@section('content')
     <div class="flex">
         <!-- Post Section -->
         <section class="w-full md:w-2/3 flex flex-col px-3">
@@ -64,4 +65,4 @@
 
         <x-sidebar/>
     </div>
-</x-app-layout>
+@endsection

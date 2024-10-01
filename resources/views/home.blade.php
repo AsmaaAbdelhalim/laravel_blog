@@ -66,172 +66,67 @@
 
   <div class="page-section">
     <div class="container">
-      <h1 class="text-center mb-5 wow fadeInUp">Our Doctors</h1>
+      <h1 class="text-center mb-5 wow fadeInUp">Popular Posts</h1>
 
       <div class="owl-carousel wow fadeInUp" id="doctorSlideshow">
+      @foreach($popularPosts as $post)
         <div class="item">
           <div class="card-doctor">
             <div class="header">
-              <img src="img/doctors/doctor_1.jpg" alt="">
+              <img src="{{ $post->thumbnail }}" alt="{{ $post->title }}">
               <div class="meta">
                 <a href="#"><span class="mai-call"></span></a>
                 <a href="#"><span class="mai-logo-whatsapp"></span></a>
               </div>
             </div>
             <div class="body">
-              <p class="text-xl mb-0">Dr. Stein Albert</p>
-              <span class="text-sm text-grey">Cardiology</span>
+              <p class="text-xl mb-0">{{$post->title}}</p>
+              <span class="text-sm text-grey">{{$post->shortBody(10)}}</span>
+              <a href="{{route('view', $post)}}" class="text-xs uppercase text-gray-800 hover:text-black">ContinueReading <i class="fas fa-arrow-right"></i>
             </div>
           </div>
         </div>
-        <div class="item">
-          <div class="card-doctor">
-            <div class="header">
-              <img src="img/doctors/doctor_2.jpg" alt="">
-              <div class="meta">
-                <a href="#"><span class="mai-call"></span></a>
-                <a href="#"><span class="mai-logo-whatsapp"></span></a>
-              </div>
-            </div>
-            <div class="body">
-              <p class="text-xl mb-0">Dr. Alexa Melvin</p>
-              <span class="text-sm text-grey">Dental</span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="card-doctor">
-            <div class="header">
-              <img src="img/doctors/doctor_3.jpg" alt="">
-              <div class="meta">
-                <a href="#"><span class="mai-call"></span></a>
-                <a href="#"><span class="mai-logo-whatsapp"></span></a>
-              </div>
-            </div>
-            <div class="body">
-              <p class="text-xl mb-0">Dr. Rebecca Steffany</p>
-              <span class="text-sm text-grey">General Health</span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="card-doctor">
-            <div class="header">
-              <img src="img/doctors/doctor_3.jpg" alt="">
-              <div class="meta">
-                <a href="#"><span class="mai-call"></span></a>
-                <a href="#"><span class="mai-logo-whatsapp"></span></a>
-              </div>
-            </div>
-            <div class="body">
-              <p class="text-xl mb-0">Dr. Rebecca Steffany</p>
-              <span class="text-sm text-grey">General Health</span>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="card-doctor">
-            <div class="header">
-              <img src="img/doctors/doctor_3.jpg" alt="">
-              <div class="meta">
-                <a href="#"><span class="mai-call"></span></a>
-                <a href="#"><span class="mai-logo-whatsapp"></span></a>
-              </div>
-            </div>
-            <div class="body">
-              <p class="text-xl mb-0">Dr. Rebecca Steffany</p>
-              <span class="text-sm text-grey">General Health</span>
-            </div>
-          </div>
-        </div>
+        @endforeach
       </div>
     </div>
   </div>
 
-  <div class="page-section bg-light">
-    <div class="container">
-      <h1 class="text-center wow fadeInUp">Latest News</h1>
-      <div class="row mt-5">
-        <div class="col-lg-4 py-2 wow zoomIn">
-          <div class="card-blog">
-            <div class="header">
-              <div class="post-category">
-                <a href="#">Covid19</a>
-              </div>
-              <a href="blog-details.html" class="post-thumb">
-                <img src="img/blog/blog_1.jpg" alt="">
-              </a>
-            </div>
-            <div class="body">
-              <h5 class="post-title"><a href="blog-details.html">List of Countries without Coronavirus case</a></h5>
-              <div class="site-info">
-                <div class="avatar mr-2">
-                  <div class="avatar-img">
-                    <img src="img/person/person_1.jpg" alt="">
-                  </div>
-                  <span>Roger Adams</span>
-                </div>
-                <span class="mai-time"></span> 1 week ago
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 py-2 wow zoomIn">
-          <div class="card-blog">
-            <div class="header">
-              <div class="post-category">
-                <a href="#">Covid19</a>
-              </div>
-              <a href="blog-details.html" class="post-thumb">
-                <img src="img/blog/blog_2.jpg" alt="">
-              </a>
-            </div>
-            <div class="body">
-              <h5 class="post-title"><a href="blog-details.html">Recovery Room: News beyond the pandemic</a></h5>
-              <div class="site-info">
-                <div class="avatar mr-2">
-                  <div class="avatar-img">
-                    <img src="img/person/person_1.jpg" alt="">
-                  </div>
-                  <span>Roger Adams</span>
-                </div>
-                <span class="mai-time"></span> 4 weeks ago
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 py-2 wow zoomIn">
-          <div class="card-blog">
-            <div class="header">
-              <div class="post-category">
-                <a href="#">Covid19</a>
-              </div>
-              <a href="blog-details.html" class="post-thumb">
-                <img src="img/blog/blog_3.jpg" alt="">
-              </a>
-            </div>
-            <div class="body">
-              <h5 class="post-title"><a href="blog-details.html">What is the impact of eating too much sugar?</a></h5>
-              <div class="site-info">
-                <div class="avatar mr-2">
-                  <div class="avatar-img">
-                    <img src="img/person/person_2.jpg" alt="">
-                  </div>
-                  <span>Diego Simmons</span>
-                </div>
-                <span class="mai-time"></span> 2 months ago
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="col-12 text-center mt-4 wow zoomIn">
-          <a href="blog.html" class="btn btn-primary">Read More</a>
-        </div>
-
+        <div class="page-section bg-light">
+  <div class="container">
+    <h1 class="text-center wow fadeInUp">Latest Post</h1>
+    <div class="row mt-5">
+      
+        @if ($latestPost)
+        <x-post-item :post="$latestPost"/>
+         @endif
+      </div>
+      
+      <div class="col-12 text-center mt-4 wow zoomIn">
+        <a href="blog.html" class="btn btn-primary">Read More</a>
       </div>
     </div>
-  </div> <!-- .page-section -->
+  </div>
+</div> <!-- .page-section -->
+@if ($latestPost)
+<div class="page-section banner-home bg-image" style="background-image: url(img/banner-pattern.svg);">
+    <div class="container py-5 py-lg-0">
+      <div class="row align-items-center">
+        <div class="col-lg-4 wow zoomIn">
+          <div class="img-banner d-none d-lg-block">
+            <img src="{{$latestPost->thumbnail}}" alt="">
+          </div>
+        </div>
+        <div class="col-lg-8 wow fadeInRight">
+          <h1 class="font-weight-normal mb-3"><x-post-item :post="$latestPost"/></h1>
+          <a href="#"><img src="img/google_play.svg" alt=""></a>
+          <a href="#" class="ml-2"><img src="img/app_store.svg" alt=""></a>
+        </div>
+      </div>
+    </div>
+  </div> 
+  @endif
+  <!-- .page-section -->
 
   <div class="page-section">
     <div class="container">
@@ -285,71 +180,21 @@
         </div>
       </div>
     </div>
-  </div> <!-- .banner-home -->
- 
-    <div class="container max-w-4xl mx-auto py-6">
+  </div> 
+  <!-- .banner-home -->
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            <!-- Latest Post -->
-            <div class="col-span-2">
-                <h2 class="text-lg sm:text-xl font-bold text-blue-500 uppercase pb-1 border-b-2 border-blue-500 mb-3">
-                    Latest Post
-                </h2>
+<!-- Recommended posts -->
+<div class="mb-8">
+    <h2 class="text-lg sm:text-xl font-bold text-blue-500 uppercase pb-1 border-b-2 border-blue-500 mb-3">
+        Recommended Posts
+    </h2>
 
-                @if ($latestPost)
-                    <x-post-item :post="$latestPost"/>
-                  
-                    {{$latestPost->title}}
-                    <img src="{{$latestPost->getThumbnail()}}" alt="{{$latestPost->title}}"/>
-
-                    
-
-                @endif
-            </div>
-
-            <!-- Popular 3 post -->
-            <div>
-                <h2 class="text-lg sm:text-xl font-bold text-blue-500 uppercase pb-1 border-b-2 border-blue-500 mb-3">
-                    Popular Posts
-                </h2>
-                @foreach($popularPosts as $post)
-                    <div class="grid grid-cols-4 gap-2 mb-4">
-                        <a href="{{route('view', $post)}}" class="pt-1">
-                            <img src="{{$post->getThumbnail()}}" alt="{{$post->title}}"/>
-                        </a>
-                        <div class="col-span-3">
-                            <a href="{{route('view', $post)}}">
-                                <h3 class="text-sm uppercase whitespace-nowrap truncate">{{$post->title}}</h3>
-                            </a>
-                            <div class="flex gap-4 mb-2">
-                             
-                            </div>
-                            <div class="text-xs">
-                                {{$post->shortBody(10)}}
-                            </div>
-                            <a href="{{route('view', $post)}}" class="text-xs uppercase text-gray-800 hover:text-black">Continue
-                                Reading <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-
-        <!-- Recommended posts -->
-        <div class="mb-8">
-            <h2 class="text-lg sm:text-xl font-bold text-blue-500 uppercase pb-1 border-b-2 border-blue-500 mb-3">
-                Recommended Posts
-            </h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                @foreach($recommendedPosts as $post)
-                    <x-post-item :post="$post" :show-author="false"/>
-                    {{$post->title}}
-                @endforeach
-            </div>
-        </div>
-
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+        @foreach($recommendedPosts as $post)
+            <x-post-item :post="$post" :show-author="false"/>
+        @endforeach
+    </div>
+</div>
         <!-- Latest Categories -->
 
         @foreach($categories as $category)

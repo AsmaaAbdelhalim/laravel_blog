@@ -67,15 +67,16 @@ class Post extends Model
     }
 
     public function humanReadTime(): Attribute
-    {
-        return new Attribute(
-            get: function ($value, $attributes) {
-                $words = Str::wordCount(strip_tags($attributes['body']));
-                $minutes = ceil($words / 200);
+{
+    return new Attribute(
+        get: function ($value, $attributes) {
+            $body = $attributes['body'] ?? '';
+            $words = Str::wordCount(strip_tags($body));
+            $minutes = ceil($words / 200);
 
-                return $minutes . ' ' . str('min')->plural($minutes) . ', '
-                    . $words . ' ' . str('word')->plural($words);
-            }
-        );
-    }
+            return $minutes . ' ' . str('min')->plural($minutes) . ', '
+                . $words . ' ' . str('word')->plural($words);
+        }
+    );
+}
 }
